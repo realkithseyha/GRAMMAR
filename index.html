@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Financial Grammar & Banking English Exam (50 Questions)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bank: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Custom smooth scrollbars */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+        }
+        /* Touch safety adjustments */
+        button, select {
+            touch-action: manipulation;
+        }
+        /* Card transition animations */
+        .fade-slide-in {
+            animation: fadeInSlide 0.25s ease-out forwards;
+        }
+        @keyframes fadeInSlide {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-full flex flex-col justify-between overflow-x-hidden">
+
+    <!-- Top Banking Bar Header -->
+    <header class="bg-slate-950 border-b border-slate-800 sticky top-0 z-30 shadow-lg">
+        <div class="max-w-6xl mx-auto px-3 sm:px-6 py-2.5 flex items-center justify-between gap-2">
+            <!-- Brand / Logo -->
+            <div class="flex items-center gap-2.5 min-w-0">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-500 to-bank-500 flex items-center justify-center shadow-md flex-shrink-0">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <div class="truncate">
+                    <h1 class="font-bold text-sm sm:text-base tracking-tight text-white flex items-center gap-1.5 truncate">
+                        <span>FinGrammar</span>
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-bank-500/20 text-bank-400 border border-bank-500/30 hidden sm:inline-block">50-Q Exam</span>
+                    </h1>
+                    <p class="text-[10px] sm:text-xs text-slate-400 truncate">Banking & Financial Assessment</p>
+                </div>
+            </div>
+
+            <!-- Controls & Timer -->
+            <div class="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+                <!-- Mode Toggle Badge -->
+                <button id="mode-toggle-btn" onclick="toggleMode()" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium border border-slate-700 flex items-center gap-1.5 transition">
+                    <span id="mode-icon" class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span id="mode-label" class="hidden sm:inline">Practice Mode</span>
+                </button>
+
+                <!-- Timer -->
+                <div class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg flex items-center gap-1.5 font-mono text-xs text-slate-300">
+                    <svg class="w-3.5 h-3.5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span id="timer-display">00:00</span>
+                </div>
+
+                <!-- Grid Navigator Toggle -->
+                <button onclick="toggleGridModal()" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center justify-center transition" title="Question Map">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Global Progress Bar -->
+        <div class="w-full bg-slate-800 h-1">
+            <div id="top-progress-bar" class="bg-gradient-to-r from-bank-500 to-emerald-400 h-1 transition-all duration-300" style="width: 2%;"></div>
+        </div>
+    </header>
+
+    <!-- Main Application Viewport -->
+    <main class="flex-1 max-w-4xl w-full mx-auto p-2 sm:p-4 md:p-6 flex flex-col justify-center">
+
+        <!-- QUESTION VIEW CONTAINER -->
+        <div id="question-view" class="bg-slate-800 border border-slate-700/80 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[82vh] sm:max-h-[85vh] fade-slide-in">
+            
+            <!-- Question Top Status Bar -->
+            <div class="bg-slate-900/90 border-b border-slate-700/60 px-4 py-3 flex items-center justify-between text-xs sm:text-sm text-slate-400 flex-shrink-0">
+                <div class="flex items-center gap-2">
+                    <span class="font-bold text-bank-400 uppercase tracking-wider text-xs" id="question-counter">Question 1 of 50</span>
+                    <span class="text-slate-600">•</span>
+                    <span class="bg-slate-800 text-slate-300 px-2.5 py-0.5 rounded-full text-[11px] font-medium border border-slate-700 truncate max-w-[150px] sm:max-w-none" id="question-category">Tenses & Vocabulary</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button id="flag-btn" onclick="toggleFlagCurrentQuestion()" class="text-slate-400 hover:text-gold-400 flex items-center gap-1 transition" title="Flag for review">
+                        <svg id="flag-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/>
+                        </svg>
+                        <span class="text-xs hidden sm:inline" id="flag-text">Flag</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scrollable Content Box -->
+            <div class="p-4 sm:p-6 overflow-y-auto flex-1 custom-scrollbar space-y-5">
+                
+                <!-- Financial Context Banner / Scenario -->
+                <div class="bg-slate-900/60 rounded-xl p-4 border border-slate-700/50">
+                    <p class="text-xs uppercase font-semibold text-slate-400 mb-1 tracking-wider flex items-center gap-1">
+                        <svg class="w-3.5 h-3.5 text-bank-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Financial Banking Sentence
+                    </p>
+                    <p id="question-text" class="text-base sm:text-lg md:text-xl font-medium text-slate-100 leading-relaxed">
+                        Loading question sentence...
+                    </p>
+                </div>
+
+                <!-- Multiple Choice Options -->
+                <div id="options-container" class="grid grid-cols-1 gap-2.5 sm:gap-3">
+                    <!-- Options injected via JavaScript -->
+                </div>
+
+                <!-- Detailed Explanation Feedback Card (Practice Mode or post-answer) -->
+                <div id="explanation-card" class="hidden rounded-xl p-4 sm:p-5 border fade-slide-in text-sm leading-relaxed">
+                    <div class="flex items-start gap-3">
+                        <div id="explanation-badge" class="p-2 rounded-lg flex-shrink-0 mt-0.5">
+                            <!-- Icon injected via JS -->
+                        </div>
+                        <div class="space-y-2 flex-1">
+                            <div class="flex items-center justify-between">
+                                <h4 id="explanation-title" class="font-bold text-base">Feedback</h4>
+                                <span id="grammar-rule-tag" class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Grammar Rule</span>
+                            </div>
+                            
+                            <!-- Detailed Breakdown -->
+                            <div class="space-y-2 text-slate-300 text-xs sm:text-sm">
+                                <p id="explanation-correct-why" class="text-slate-200"></p>
+                                <hr class="border-slate-700/60 my-2">
+                                <p id="explanation-incorrect-why" class="text-slate-400 text-xs italic"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Navigation Footer Actions -->
+            <div class="bg-slate-900/90 border-t border-slate-700/60 px-4 py-3 flex items-center justify-between gap-2 flex-shrink-0">
+                <button id="prev-btn" onclick="prevQuestion()" disabled class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 disabled:opacity-40 disabled:hover:bg-slate-800 text-slate-300 text-xs sm:text-sm font-semibold border border-slate-700 transition flex items-center gap-1.5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                    Previous
+                </button>
+
+                <div class="text-center text-xs text-slate-400 font-mono hidden sm:block">
+                    Score: <span id="live-score" class="text-emerald-400 font-bold">$0</span>
+                </div>
+
+                <button id="next-btn" onclick="nextQuestion()" class="px-5 py-2.5 rounded-xl bg-bank-600 hover:bg-bank-500 text-white text-xs sm:text-sm font-semibold transition shadow-md shadow-bank-900/50 flex items-center gap-1.5">
+                    <span id="next-btn-text">Next Question</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- RESULTS / EXAM SUMMARY VIEW (Hidden by default) -->
+        <div id="results-view" class="hidden bg-slate-800 border border-slate-700/80 rounded-2xl shadow-2xl p-4 sm:p-6 md:p-8 fade-slide-in max-h-[85vh] flex flex-col">
+            <div class="text-center border-b border-slate-700 pb-6 flex-shrink-0">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-500 to-bank-500 flex items-center justify-center mx-auto mb-3 shadow-lg">
+                    <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Banking Assessment Statement</h2>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1">Grammar & Financial Terminology Evaluation Completed</p>
+                
+                <!-- Score Cards Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6">
+                    <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-700">
+                        <p class="text-[10px] text-slate-400 uppercase font-semibold">Total Score</p>
+                        <p id="summary-score-val" class="text-xl sm:text-2xl font-bold text-emerald-400 font-mono">0 / 50</p>
+                    </div>
+                    <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-700">
+                        <p class="text-[10px] text-slate-400 uppercase font-semibold">Percentage</p>
+                        <p id="summary-percent-val" class="text-xl sm:text-2xl font-bold text-bank-400 font-mono">0%</p>
+                    </div>
+                    <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-700">
+                        <p class="text-[10px] text-slate-400 uppercase font-semibold">Status Rating</p>
+                        <p id="summary-rating-val" class="text-xs sm:text-sm font-bold text-gold-400 mt-1">Pending</p>
+                    </div>
+                    <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-700">
+                        <p class="text-[10px] text-slate-400 uppercase font-semibold">Time Spent</p>
+                        <p id="summary-time-val" class="text-xl sm:text-2xl font-bold text-slate-300 font-mono">00:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Restart Button -->
+            <div class="pt-3 border-t border-slate-700 flex justify-end gap-3 flex-shrink-0">
+                <button onclick="restartExam()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg transition">
+                    Retake Financial Exam
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 50-QUESTION NAVIGATION GRID MODAL -->
+    <div id="grid-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden fade-slide-in">
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl max-w-xl w-full p-5 shadow-2xl flex flex-col max-h-[85vh]">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-700">
+                <div>
+                    <h3 class="font-bold text-slate-100 text-base">Question Navigator</h3>
+                    <p class="text-xs text-slate-400">Jump to any question or inspect progress</p>
+                </div>
+                <button onclick="toggleGridModal()" class="text-slate-400 hover:text-white p-1">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Grid Key Legend -->
+            <div class="flex flex-wrap gap-3 py-3 text-[11px] text-slate-300 border-b border-slate-700/60">
+                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-emerald-500"></span> Correct</span>
+                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-rose-500"></span> Incorrect</span>
+                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-bank-500"></span> Answered</span>
+                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-gold-500"></span> Flagged</span>
+                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-slate-700"></span> Unanswered</span>
+            </div>
+
+            <!-- Grid Items (1 to 50) -->
+            <div id="grid-buttons-container" class="grid grid-cols-5 sm:grid-cols-10 gap-2 my-4 overflow-y-auto custom-scrollbar p-1">
+                <!-- 50 buttons injected via JS -->
+            </div>
+
+            <div class="pt-3 border-t border-slate-700 text-right">
+                <button onclick="toggleGridModal()" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg text-xs font-semibold transition">
+                    Close Map
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* ==========================================================================
+           50 COMPREHENSIVE BANKING & FINANCIAL GRAMMAR QUESTIONS DATASET
+           ========================================================================== */
+        const examQuestions = [
+            {
+                id: 1,
+                category: "Past Perfect & Withdrawals",
+                text: "The client ________ $2,000 from his savings account before he went to the auto dealership yesterday.",
+                options: ["withdraws", "had withdrawn", "is withdrawing", "will withdraw"],
+                correct: 1,
+                rule: "Past Perfect (had + V3)",
+                whyRight: "Correct! 'Had withdrawn' (Past Perfect) indicates an action completed before another past action ('went to the dealership'). Financial context: 'Withdraw' means taking money out of an account.",
+                whyWrong: "'Withdraws' is Present Simple; 'is withdrawing' is Present Continuous; 'will withdraw' is Future. None fit an action completed prior to yesterday."
+            },
+            {
+                id: 2,
+                category: "Present Perfect & Deposits",
+                text: "She ________ her monthly paycheck into her checking account, so her balance is now updated.",
+                options: ["has just deposited", "deposited tomorrow", "is deposit", "had deposit"],
+                correct: 0,
+                rule: "Present Perfect (have/has + V3)",
+                whyRight: "Correct! 'Has just deposited' connects a recently finished action with present results (updated balance). Financial context: 'Deposit' means putting money into a bank.",
+                whyWrong: "'Deposited tomorrow' mixes past tense with future timing; 'is deposit' and 'had deposit' use incorrect verb forms."
+            },
+            {
+                id: 3,
+                category: "Past Continuous & Mortgages",
+                text: "While the bank officer ________ the mortgage agreement, the applicant noticed an error in the interest rate.",
+                options: ["reviews", "was reviewing", "will review", "has reviewed"],
+                correct: 1,
+                rule: "Past Continuous (was/were + V-ing)",
+                whyRight: "Correct! 'Was reviewing' describes an ongoing past action interrupted by another past event ('noticed'). Financial context: A 'mortgage' is a bank loan to buy property.",
+                whyWrong: "'Reviews' is Present Simple; 'will review' is Future; 'has reviewed' is Present Perfect, which doesn't fit the 'while' clause in past time."
+            },
+            {
+                id: 4,
+                category: "Passive Voice & Wire Transfers",
+                text: "The international wire transfer ________ by the compliance department late last night.",
+                options: ["was processed", "is processing", "will be process", "has processing"],
+                correct: 0,
+                rule: "Passive Voice Past Simple (was/were + V3)",
+                whyRight: "Correct! 'Was processed' is passive voice, showing the wire transfer received the action in the past ('last night'). Financial context: A 'wire transfer' is electronic money movement.",
+                whyWrong: "'Is processing' is active continuous; 'will be process' lacks 'ed' (processed); 'has processing' is grammatically invalid."
+            },
+            {
+                id: 5,
+                category: "Conditionals & Overdrafts",
+                text: "If your account balance drops below zero, the bank ________ an overdraft fee.",
+                options: ["charged", "will charge", "had charged", "would have charged"],
+                correct: 1,
+                rule: "First Conditional (If + Present, Will + V1)",
+                whyRight: "Correct! First conditional predicts real future results for present conditions. Financial context: An 'overdraft fee' is charged when spending exceeds account balance.",
+                whyWrong: "'Charged' is Past Simple; 'had charged' is Past Perfect; 'would have charged' belongs in Third Conditional."
+            },
+            {
+                id: 6,
+                category: "Future Continuous & Audits",
+                text: "At 10:00 AM tomorrow, the financial auditors ________ the corporate ledgers.",
+                options: ["will be examining", "examined", "have examined", "were examining"],
+                correct: 0,
+                rule: "Future Continuous (will be + V-ing)",
+                whyRight: "Correct! 'Will be examining' describes an action in progress at a specific future time ('10:00 AM tomorrow'). Financial context: A 'ledger' contains official accounting entries.",
+                whyWrong: "'Examined' is Past Simple; 'have examined' is Present Perfect; 'were examining' is Past Continuous."
+            },
+            {
+                id: 7,
+                category: "Modals & Collateral",
+                text: "Borrowers ________ provide sufficient collateral if they wish to secure a high-value commercial loan.",
+                options: ["must", "would", "might to", "ought"],
+                correct: 0,
+                rule: "Modal Auxiliary (Must + V1 base)",
+                whyRight: "Correct! 'Must' expresses strong obligation/requirement. Financial context: 'Collateral' is an asset pledged to guarantee loan repayment.",
+                whyWrong: "'Would' expresses conditional/past habits; 'might to' is ungrammatical (might takes base verb without 'to'); 'ought' requires 'to'."
+            },
+            {
+                id: 8,
+                category: "Present Perfect Continuous & Yields",
+                text: "This high-yield savings fund ________ steady dividends for over ten years.",
+                options: ["is generating", "has been generating", "generated tomorrow", "will generated"],
+                correct: 1,
+                rule: "Present Perfect Continuous (has/have been + V-ing)",
+                whyRight: "Correct! 'Has been generating' shows an action started in the past that continues up to now ('for over ten years'). Financial context: 'Dividend' is profit paid to investors.",
+                whyWrong: "'Is generating' lacks time duration context; 'generated tomorrow' conflicts with time adverb; 'will generated' is incorrect modal form."
+            },
+            {
+                id: 9,
+                category: "Third Conditional & Loan Defaults",
+                text: "If the firm ________ its debt obligations on time, it would not have gone into default.",
+                options: ["meets", "had met", "has met", "will meet"],
+                correct: 1,
+                rule: "Third Conditional (If + Past Perfect, Would have + V3)",
+                whyRight: "Correct! Third conditional uses 'had met' for hypothetical past scenarios with unrealized past consequences. Financial context: 'Default' occurs when a loan isn't repaid.",
+                whyWrong: "'Meets' is Present Simple (1st conditional); 'has met' is Present Perfect; 'will meet' is Future."
+            },
+            {
+                id: 10,
+                category: "Passive Voice & Interest Rates",
+                text: "Benchmark interest rates ________ by the Federal Reserve during the emergency meeting yesterday.",
+                options: ["were raised", "are raising", "will raise", "have raised"],
+                correct: 0,
+                rule: "Passive Voice Past Simple",
+                whyRight: "Correct! 'Were raised' correctly puts interest rates as the recipient of the action in past time. Financial context: 'Interest rate' is the cost of borrowing money.",
+                whyWrong: "'Are raising' is present active; 'will raise' is future; 'have raised' is active present perfect."
+            },
+            {
+                id: 11,
+                category: "Gerunds vs Infinitives & Refinancing",
+                text: "The financial director recommended ________ the company's long-term corporate debt.",
+                options: ["to refinance", "refinancing", "refinanced", "refinance"],
+                correct: 1,
+                rule: "Verb Patterns (Recommend + Gerund V-ing)",
+                whyRight: "Correct! The verb 'recommend' is followed by a gerund ('refinancing'). Financial context: 'Refinancing' replaces existing debt under new interest terms.",
+                whyWrong: "'To refinance' (infinitive) is incorrect after recommend; 'refinanced' is past tense; 'refinance' is base form."
+            },
+            {
+                id: 12,
+                category: "Future Perfect & Amortization",
+                text: "By December 2028, the homeowner ________ her 30-year mortgage according to the amortization schedule.",
+                options: ["will have paid off", "pays off", "was paying off", "has paid off"],
+                correct: 0,
+                rule: "Future Perfect (will have + V3)",
+                whyRight: "Correct! 'Will have paid off' specifies an action completed before a future deadline ('By December 2028'). Financial context: 'Amortization' is the schedule of loan principal/interest payments.",
+                whyWrong: "'Pays off' is Present Simple; 'was paying off' is Past Continuous; 'has paid off' is Present Perfect."
+            },
+            {
+                id: 13,
+                category: "Causative Verbs & Credit Scores",
+                text: "The applicant had her credit score ________ before applying for the premium credit card.",
+                options: ["evaluating", "evaluated", "evaluate", "to evaluate"],
+                correct: 1,
+                rule: "Causative Passive (Have + Object + Past Participle V3)",
+                whyRight: "Correct! 'Had her credit score evaluated' means someone else evaluated it for her. Financial context: A 'credit score' rates creditworthiness.",
+                whyWrong: "'Evaluating' is present participle; 'evaluate' is base verb; 'to evaluate' is infinitive."
+            },
+            {
+                id: 14,
+                category: "Quantifiers & Liquidity",
+                text: "The bank maintains ________ liquidity to ensure it can fulfill immediate customer withdrawal requests.",
+                options: ["sufficient", "many", "a few", "few"],
+                correct: 0,
+                rule: "Uncountable Quantifiers (Sufficient + Uncountable Noun)",
+                whyRight: "Correct! 'Liquidity' is an uncountable abstract noun requiring 'sufficient'. Financial context: 'Liquidity' is cash availability.",
+                whyWrong: "'Many', 'a few', and 'few' are used only with plural countable nouns (e.g., banknotes)."
+            },
+            {
+                id: 15,
+                category: "Used To & Paper Statements",
+                text: "In the past, customers ________ stand in long bank queues just to request a paper bank statement.",
+                options: ["used to", "are used to", "use to", "were using to"],
+                correct: 0,
+                rule: "Past Habit (Used to + V1)",
+                whyRight: "Correct! 'Used to' describes discontinued past habits or states. Financial context: A 'bank statement' summarizes account activity.",
+                whyWrong: "'Are used to' means accustomed to doing present tasks; 'use to' lacks past tense 'd'; 'were using to' is ungrammatical."
+            },
+            {
+                id: 16,
+                category: "Reported Speech & Tellers",
+                text: "The bank teller told me that my check ________ successfully cleared.",
+                options: ["has", "had", "will", "is"],
+                correct: 1,
+                rule: "Reported Speech Backshift (Present Perfect -> Past Perfect)",
+                whyRight: "Correct! In reported speech after past reporting verb ('told me'), present perfect shifts to past perfect ('had cleared'). Financial context: 'Clearing' a check validates funds.",
+                whyWrong: "'Has' keeps present tense without backshift; 'will' indicates future; 'is' does not form past perfect."
+            },
+            {
+                id: 17,
+                category: "Subject-Verb Agreement & Assets",
+                text: "Neither the board members nor the chief executive officer ________ authorized to approve the illegal transaction.",
+                options: ["were", "was", "are not", "were not"],
+                correct: 1,
+                rule: "Proximity Agreement with 'Neither... nor' (Verb agrees with closest subject)",
+                whyRight: "Correct! The verb agrees with 'chief executive officer' (singular subject), so singular 'was' is required. Financial context: 'Transaction' is a financial deal.",
+                whyWrong: "'Were' agrees incorrectly with plural board members; 'are not' creates a double negative; 'were not' is plural and negative."
+            },
+            {
+                id: 18,
+                category: "Modals of Deduction & Fraud",
+                text: "Look at these duplicate debit charges! Someone ________ stolen your account credentials.",
+                options: ["must have", "should", "ought to", "can"],
+                correct: 0,
+                rule: "Past Modals of Certainty/Deduction (Must have + V3)",
+                whyRight: "Correct! 'Must have' expresses logical certainty about a past event based on clear evidence (duplicate charges). Financial context: 'Credentials' protect digital bank accounts.",
+                whyWrong: "'Should' expresses obligation/advice; 'ought to' is recommendation; 'can' cannot express past logical deduction."
+            },
+            {
+                id: 19,
+                category: "Prepositions & Interest",
+                text: "The central bank charged interest ________ commercial financial institutions at a rate of 4.5%.",
+                options: ["on", "to", "with", "by"],
+                correct: 1,
+                rule: "Prepositional Collocations (Charge interest to/on)",
+                whyRight: "Correct! You charge interest 'to' a borrower or 'on' a loan amount. Here, charging interest 'to' commercial banks is correct prepositional usage.",
+                whyWrong: "'With' and 'by' are incorrect preposition choices for charging interest to an entity."
+            },
+            {
+                id: 20,
+                category: "Present Continuous & Currency Exchange",
+                text: "Look at the screen! Currency traders ________ foreign exchange rates actively right now.",
+                options: ["monitor", "are monitoring", "monitored", "have monitored"],
+                correct: 1,
+                rule: "Present Continuous for Actions Happening NOW",
+                whyRight: "Correct! 'Look at the screen!' signals an event happening right now, demanding Present Continuous ('are monitoring'). Financial context: 'Foreign exchange' (forex) is currency trading.",
+                whyWrong: "'Monitor' is habitual simple present; 'monitored' is past tense; 'have monitored' is present perfect."
+            },
+            {
+                id: 21,
+                category: "Conditionals & Bankruptcy",
+                text: "If the corporation had managed its liquidity better, it ________ bankruptcy last quarter.",
+                options: ["would avoid", "would have avoided", "avoids", "will avoid"],
+                correct: 1,
+                rule: "Third Conditional Result Clause (Would have + V3)",
+                whyRight: "Correct! 'Would have avoided' completes hypothetical past conditions ('If + had managed'). Financial context: 'Bankruptcy' is legal insolvency.",
+                whyWrong: "'Would avoid' is Second Conditional (present unreal); 'avoids' is Present Simple; 'will avoid' is First Conditional."
+            },
+            {
+                id: 22,
+                category: "Inversion & Lines of Credit",
+                text: "Not only ________ open a line of credit, but she also renegotiated her credit card fee structure.",
+                options: ["did she", "she did", "she had", "has she"],
+                correct: 0,
+                rule: "Negative Inversion (Not only + Auxiliary + Subject + Verb)",
+                whyRight: "Correct! Negative introductory adverbials ('Not only') require subject-auxiliary inversion ('did she'). Financial context: A 'line of credit' is flexible bank borrowing.",
+                whyWrong: "'She did' lacks subject-verb inversion; 'she had' lacks inversion; 'has she' uses present tense conflicting with past 'renegotiated'."
+            },
+            {
+                id: 23,
+                category: "Passive Voice & Treasury Bonds",
+                text: "Government treasury bonds ________ as safe-haven assets during economic recessions.",
+                options: ["are regarded", "regard", "were regarding", "have regarding"],
+                correct: 0,
+                rule: "Present Simple Passive (are + V3)",
+                whyRight: "Correct! Treasury bonds 'are regarded' (passive voice general fact) by financial markets. Financial context: 'Treasury bonds' are sovereign debt instruments.",
+                whyWrong: "'Regard' is active voice (bonds don't perform the action of regarding); 'were regarding' and 'have regarding' are incorrect active/grammatical forms."
+            },
+            {
+                id: 24,
+                category: "Gerund as Subject & Budgeting",
+                text: "________ strict monthly budget constraints is essential for paying off student financial loans.",
+                options: ["Maintain", "Maintaining", "Maintained", "To maintaining"],
+                correct: 1,
+                rule: "Gerund as Noun Subject (V-ing)",
+                whyRight: "Correct! 'Maintaining' acts as the noun subject of the sentence. Financial context: 'Budget constraints' limit spending.",
+                whyWrong: "'Maintain' is base verb imperative; 'maintained' is past participle; 'To maintaining' incorrectly mixes infinitive 'to' with gerund."
+            },
+            {
+                id: 25,
+                category: "Relative Clauses & Beneficiaries",
+                text: "The wealth manager, ________ advice I followed, saved me thousands of dollars in capital gains tax.",
+                options: ["who", "whose", "whom", "which"],
+                correct: 1,
+                rule: "Possessive Relative Pronoun (Whose)",
+                whyRight: "Correct! 'Whose' shows possession ('whose advice' = the wealth manager's advice). Financial context: 'Capital gains tax' is tax paid on investment profits.",
+                whyWrong: "'Who' is subjective relative pronoun; 'whom' is objective; 'which' refers to non-human objects."
+            },
+            {
+                id: 26,
+                category: "Subjunctive Mood & Escrow Accounts",
+                text: "The legal contract demands that the buyer ________ $10,000 into an escrow account immediately.",
+                options: ["deposits", "deposit", "deposited", "is depositing"],
+                correct: 1,
+                rule: "Subjunctive Mood after Demand/Require (Subject + Base Verb)",
+                whyRight: "Correct! Verbs of demand/requirement take the subjunctive base form ('deposit') without third-person '-s'. Financial context: 'Escrow' is neutral third-party holding of funds.",
+                whyWrong: "'Deposits' uses standard indicative '-s'; 'deposited' is past; 'is depositing' is continuous indicative."
+            },
+            {
+                id: 27,
+                category: "Past Perfect Continuous & Hedge Funds",
+                text: "The financial institution ________ in risky derivative products for years before regulators stepped in.",
+                options: ["had been investing", "has been investing", "is investing", "will invest"],
+                correct: 0,
+                rule: "Past Perfect Continuous (had been + V-ing)",
+                whyRight: "Correct! 'Had been investing' emphasizes continuous duration up until a past stopping point ('before regulators stepped in'). Financial context: 'Derivatives' are financial contracts linked to underlying assets.",
+                whyWrong: "'Has been investing' links to present; 'is investing' is current continuous; 'will invest' is future."
+            },
+            {
+                id: 28,
+                category: "Conjunctions & Balance Sheets",
+                text: "The corporate balance sheet reflected high revenue growth, ________ liabilities also increased.",
+                options: ["yet", "because", "so", "unless"],
+                correct: 0,
+                rule: "Adversative Coordinating Conjunction (Yet / But)",
+                whyRight: "Correct! 'Yet' introduces a contrasting fact (revenue grew, BUT liabilities also rose). Financial context: 'Liabilities' are financial debts owed.",
+                whyWrong: "'Because' indicates cause; 'so' indicates result; 'unless' introduces negative condition."
+            },
+            {
+                id: 29,
+                category: "Passive Future & Direct Deposits",
+                text: "Your monthly salary ________ directly into your designated bank account by Friday morning.",
+                options: ["will be deposited", "will deposit", "is deposit", "has deposited"],
+                correct: 0,
+                rule: "Passive Voice Future Simple (will be + V3)",
+                whyRight: "Correct! 'Will be deposited' correctly shows the salary receiving the action in the future. Financial context: 'Direct deposit' is electronic payment transfer.",
+                whyWrong: "'Will deposit' active voice implies salary deposits itself; 'is deposit' is ungrammatical; 'has deposited' is active present perfect."
+            },
+            {
+                id: 30,
+                category: "Modals of Ability & Solvency",
+                text: "After securing venture capital funding, the start-up company ________ pay off all short-term debts.",
+                options: ["was able to", "could to", "might to", "is can"],
+                correct: 0,
+                rule: "Past Specific Ability (Was able to + V1)",
+                whyRight: "Correct! 'Was able to' expresses success in performing a specific past task. Financial context: 'Short-term debt' is due within one year.",
+                whyWrong: "'Could to' and 'might to' are grammatically invalid (modals don't take 'to'); 'is can' combines two verbs incorrectly."
+            },
+            {
+                id: 31,
+                category: "Articles & Inflation",
+                text: "________ sharp rise in inflation forced central banks to raise emergency benchmark rates.",
+                options: ["A", "An", "The", "No article"],
+                correct: 0,
+                rule: "Indefinite Article before Consonant Sound ('A sharp rise')",
+                whyRight: "Correct! 'A' is used before singular countable noun phrases starting with a consonant sound ('sharp'). Financial context: 'Inflation' is general price increase.",
+                whyWrong: "'An' is used before vowel sounds; 'No article' leaves singular noun phrase incomplete."
+            },
+            {
+                id: 32,
+                category: "Comparatives & Certificates of Deposit",
+                text: "A 5-year Certificate of Deposit (CD) usually offers ________ interest rate than a traditional checking account.",
+                options: ["a higher", "highest", "more high", "the most high"],
+                correct: 0,
+                rule: "Comparative Degree (-er + than)",
+                whyRight: "Correct! 'A higher' correctly compares two banking options (CD vs checking account). Financial context: 'Certificate of Deposit' locks funds for fixed interest.",
+                whyWrong: "'Highest' is superlative; 'more high' is incorrect form for short adjective 'high'."
+            },
+            {
+                id: 33,
+                category: "Time Clauses & Foreclosure",
+                text: "As soon as the homeowner ________ three consecutive payment deadlines, the lender initiated foreclosure.",
+                options: ["missed", "will miss", "misses", "has missed"],
+                correct: 0,
+                rule: "Past Time Clause Sequence (As soon as + Past Simple)",
+                whyRight: "Correct! 'Missed' maintains past tense sequence with 'initiated'. Financial context: 'Foreclosure' is bank seizure of mortgaged property due to unpaid debt.",
+                whyWrong: "'Will miss' is future; 'misses' is present; 'has missed' breaks past sequence."
+            },
+            {
+                id: 34,
+                category: "Prepositions & Bank Accounts",
+                text: "You can transfer funds directly ________ your checking account ________ your savings account online.",
+                options: ["from / to", "in / into", "at / towards", "by / for"],
+                correct: 0,
+                rule: "Prepositions of Movement (Transfer from X to Y)",
+                whyRight: "Correct! Funds move 'from' the origin account 'to' the destination account. Financial context: Account transfers inside online banking.",
+                whyWrong: "Other prepositions fail to express start-point and destination movement correctly."
+            },
+            {
+                id: 35,
+                category: "Present Perfect vs Past Simple & Audits",
+                text: "The financial compliance team ________ three branches so far this month.",
+                options: ["has audited", "audited yesterday", "audits tomorrow", "was auditing"],
+                correct: 0,
+                rule: "Present Perfect with 'So far' (have/has + V3)",
+                whyRight: "Correct! 'Has audited' pairs with 'so far this month' for unfinished time periods. Financial context: 'Audit' is official financial inspection.",
+                whyWrong: "'Audited yesterday' conflicts with 'so far this month'; 'audits tomorrow' is future; 'was auditing' lacks completion context."
+            },
+            {
+                id: 36,
+                category: "Conditionals & Foreign Exchange Risk",
+                text: "If exchange rates fluctuate wildly, international traders ________ currency forward contracts.",
+                options: ["use", "used", "would used", "had used"],
+                correct: 0,
+                rule: "Zero Conditional for Financial Facts (If + Present Simple, Present Simple)",
+                whyRight: "Correct! Zero conditional states factual routines or general truths in financial markets. Financial context: 'Forward contracts' lock exchange rates against volatility.",
+                whyWrong: "'Used' shifts to past; 'would used' is ungrammatical; 'had used' is past perfect."
+            },
+            {
+                id: 37,
+                category: "Passive Voice & Credit Limits",
+                text: "Your total credit limit ________ to $15,000 based on your high credit score history.",
+                options: ["has been increased", "increases", "is increase", "was increasing"],
+                correct: 0,
+                rule: "Present Perfect Passive (has been + V3)",
+                whyRight: "Correct! 'Has been increased' shows an action completed by the bank affecting the present limit. Financial context: 'Credit limit' is maximum credit line.",
+                whyWrong: "'Increases' is active; 'is increase' is ungrammatical; 'was increasing' lacks completion."
+            },
+            {
+                id: 38,
+                category: "Imperatives & ATM Safety",
+                text: "________ your 4-digit PIN code when using an automated teller machine (ATM).",
+                options: ["Never share", "Not sharing", "Don't sharing", "You to share"],
+                correct: 0,
+                rule: "Negative Imperative (Never / Do not + Base V1)",
+                whyRight: "Correct! 'Never share' is a direct command/instruction. Financial context: A 'PIN' protects debit card ATM access.",
+                whyWrong: "'Not sharing' and 'Don't sharing' use participle instead of base verb; 'You to share' is ungrammatical."
+            },
+            {
+                id: 39,
+                category: "Used To vs Be Used To & Risk Management",
+                text: "Senior fund managers are accustomed to ________ volatile stock market shifts.",
+                options: ["handling", "handle", "handled", "be handle"],
+                correct: 0,
+                rule: "Accustomed to / Be used to (+ Gerund V-ing)",
+                whyRight: "Correct! 'Are accustomed to' requires a gerund ('handling'). Financial context: Market 'volatility' measures price fluctuation.",
+                whyWrong: "'Handle' is base verb; 'handled' is past; 'be handle' is ungrammatical."
+            },
+            {
+                id: 40,
+                category: "Participle Clauses & Bank Vaults",
+                text: "________ the main bank vault, the security guards set the digital alarms.",
+                options: ["Having locked", "Locked", "Lock", "Locks"],
+                correct: 0,
+                rule: "Perfect Participle Clause (Having + V3 for preceding action)",
+                whyRight: "Correct! 'Having locked' indicates the guards completed locking the vault BEFORE setting alarms. Financial context: 'Vault' stores bank cash.",
+                whyWrong: "'Locked' sounds like passive state; 'Lock' and 'Locks' fail to create a non-finite participle clause."
+            },
+            {
+                id: 41,
+                category: "Relative Pronouns & Investment Portfolios",
+                text: "Assets ________ offer high returns typically carry higher financial risks.",
+                options: ["that", "who", "whom", "whose"],
+                correct: 0,
+                rule: "Relative Pronoun for Inanimate Things (That / Which)",
+                whyRight: "Correct! 'That' refers to 'Assets' (financial holdings). Financial context: 'Assets' are cash, stocks, real estate, etc.",
+                whyWrong: "'Who', 'whom', and 'whose' refer exclusively to people."
+            },
+            {
+                id: 42,
+                category: "Future Perfect Continuous & Loan Repayment",
+                text: "By next month, our business ________ off this commercial mortgage for exactly twenty years.",
+                options: ["will have been paying", "pays", "paid", "has paid"],
+                correct: 0,
+                rule: "Future Perfect Continuous (will have been + V-ing)",
+                whyRight: "Correct! 'Will have been paying' calculates ongoing duration up to a specific future point ('By next month'). Financial context: Commercial mortgage payments.",
+                whyWrong: "'Pays' is simple present; 'paid' is simple past; 'has paid' is present perfect."
+            },
+            {
+                id: 43,
+                category: "Reported Speech Questions & Tellers",
+                text: "The client asked the teller whether the bank ________ wire transfer fees on student accounts.",
+                options: ["waived", "waives", "is waiving", "will waive"],
+                correct: 0,
+                rule: "Reported Speech Indirect Question (Past Simple Backshift)",
+                whyRight: "Correct! Backshifting in reported past questions turns present 'waives' into past 'waived'. Financial context: 'Fee waiver' removes bank charges.",
+                whyWrong: "'Waives', 'is waiving', and 'will waive' fail past tense backshift required by 'asked'."
+            },
+            {
+                id: 44,
+                category: "Adverb Placement & Loan Approvals",
+                text: "The risk management board ________ approved the multi-million dollar loan facility.",
+                options: ["unanimously", "unanimous", "unanimity", "more unanimous"],
+                correct: 0,
+                rule: "Adverb Modifying Verb (Unanimously approved)",
+                whyRight: "Correct! Adverb 'unanimously' modifies the verb 'approved'. Financial context: 'Loan facility' is formal corporate credit agreement.",
+                whyWrong: "'Unanimous' is adjective; 'unanimity' is noun; 'more unanimous' is incorrect comparative."
+            },
+            {
+                id: 45,
+                category: "Modals of Necessity & Microfinance",
+                text: "Small enterprise owners ________ present valid tax returns to qualify for microfinance funding.",
+                options: ["have to", "has to", "was to", "ought"],
+                correct: 0,
+                rule: "Modal of Necessity (Have to + V1 for plural subjects)",
+                whyRight: "Correct! 'Have to' expresses objective necessity for plural subject 'owners'. Financial context: 'Microfinance' provides small business loans.",
+                whyWrong: "'Has to' is singular; 'was to' is singular past; 'ought' lacks required 'to'."
+            },
+            {
+                id: 46,
+                category: "Tag Questions & Bank Statements",
+                text: "You haven't requested your quarterly account statement yet, ________?",
+                options: ["have you", "haven't you", "did you", "don't you"],
+                correct: 0,
+                rule: "Question Tag (Negative statement -> Positive tag)",
+                whyRight: "Correct! Negative auxiliary 'haven't' requires positive tag 'have you'. Financial context: Quarterly account statements summarize bank activity.",
+                whyWrong: "'Haven't you' creates double negative tag; 'did you' and 'don't you' use wrong auxiliary verbs."
+            },
+            {
+                id: 47,
+                category: "Passive Voice Modal & Off-Shoring",
+                text: "Offshore financial accounts ________ under strict international tax transparency regulations.",
+                options: ["must be monitored", "must monitor", "must monitoring", "must be monitor"],
+                correct: 0,
+                rule: "Passive Voice with Modals (Must be + V3)",
+                whyRight: "Correct! 'Must be monitored' correctly forms modal passive voice. Financial context: 'Offshore accounts' exist outside national residence.",
+                whyWrong: "'Must monitor' is active; 'must monitoring' is invalid; 'must be monitor' lacks past participle -ed."
+            },
+            {
+                id: 48,
+                category: "Conditionals & Financial Yields",
+                text: "If central banks raise interest rates, bond yields usually ________ as bond prices fall.",
+                options: ["rise", "rose", "would rise", "had risen"],
+                correct: 0,
+                rule: "Zero Conditional Facts (If + Present Simple, Present Simple)",
+                whyRight: "Correct! Expresses economic financial constant (interest rates rise -> yields rise). Financial context: 'Yield' is income return on an investment.",
+                whyWrong: "'Rose' is past; 'would rise' is conditional; 'had risen' is past perfect."
+            },
+            {
+                id: 49,
+                category: "Gerund Phrases & Debit Transactions",
+                text: "________ your debit card PIN in public places poses a severe cybersecurity risk.",
+                options: ["Exposing", "Expose", "Exposed", "To exposing"],
+                correct: 0,
+                rule: "Gerund Subject (V-ing)",
+                whyRight: "Correct! 'Exposing' functions as noun subject of sentence verb 'poses'. Financial context: 'Debit card' security.",
+                whyWrong: "'Expose' is imperative verb; 'Exposed' is past participle; 'To exposing' mixes preposition with gerund."
+            },
+            {
+                id: 50,
+                category: "Present Perfect Continuous & Zero-Balance Accounts",
+                text: "Our financial department ________ a zero-balance corporate account since last spring.",
+                options: ["has been maintaining", "is maintain", "maintained tomorrow", "will maintaining"],
+                correct: 0,
+                rule: "Present Perfect Continuous with 'Since' (has been + V-ing)",
+                whyRight: "Correct! 'Has been maintaining' pairs with 'since last spring' for continuous actions. Financial context: A 'zero-balance account' automatically transfers funds.",
+                whyWrong: "'Is maintain' is invalid; 'maintained tomorrow' conflicts with past 'since'; 'will maintaining' is ungrammatical."
+            }
+        ];
+
+        /* ==========================================================================
+           APPLICATION STATE & MANAGEMENT
+           ========================================================================== */
+        let currentIndex = 0;
+        let userAnswers = new Array(examQuestions.length).fill(null);
+        let flaggedQuestions = new Set();
+        let practiceMode = true; // true = Practice (instant feedback), false = Exam mode (submit at end)
+        let timerSeconds = 0;
+        let timerInterval = null;
+
+        // DOM Elements
+        const questionCounterEl = document.getElementById('question-counter');
+        const questionCategoryEl = document.getElementById('question-category');
+        const questionTextEl = document.getElementById('question-text');
+        const optionsContainerEl = document.getElementById('options-container');
+        const explanationCardEl = document.getElementById('explanation-card');
+        const explanationTitleEl = document.getElementById('explanation-title');
+        const explanationCorrectWhyEl = document.getElementById('explanation-correct-why');
+        const explanationIncorrectWhyEl = document.getElementById('explanation-incorrect-why');
+        const explanationBadgeEl = document.getElementById('explanation-badge');
+        const grammarRuleTagEl = document.getElementById('grammar-rule-tag');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const nextBtnText = document.getElementById('next-btn-text');
+        const liveScoreEl = document.getElementById('live-score');
+        const topProgressBarEl = document.getElementById('top-progress-bar');
+        const flagBtnEl = document.getElementById('flag-btn');
+        const flagTextEl = document.getElementById('flag-text');
+        const flagIconEl = document.getElementById('flag-icon');
+        const timerDisplayEl = document.getElementById('timer-display');
+
+        // Start Timer
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                timerSeconds++;
+                const mins = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+                const secs = String(timerSeconds % 60).padStart(2, '0');
+                timerDisplayEl.textContent = `${mins}:${secs}`;
+            }, 1000);
+        }
+
+        // Toggle Practice vs Exam Mode
+        function toggleMode() {
+            practiceMode = !practiceMode;
+            const modeLabel = document.getElementById('mode-label');
+            const modeIcon = document.getElementById('mode-icon');
+            
+            if (practiceMode) {
+                modeLabel.textContent = "Practice Mode";
+                modeIcon.className = "w-2 h-2 rounded-full bg-emerald-400 animate-pulse";
+            } else {
+                modeLabel.textContent = "Exam Mode";
+                modeIcon.className = "w-2 h-2 rounded-full bg-gold-400 animate-pulse";
+            }
+            renderQuestion();
+        }
+
+        // Render Current Question
+        function renderQuestion() {
+            const q = examQuestions[currentIndex];
+
+            // Category & Counter
+            questionCounterEl.textContent = `Question ${currentIndex + 1} of ${examQuestions.length}`;
+            questionCategoryEl.textContent = q.category;
+
+            // Highlight blank spot in sentence
+            const formattedSentence = q.text.replace('________', `<span class="inline-block border-b-2 border-bank-500 font-bold px-2 text-bank-400 bg-bank-950/60 rounded">?</span>`);
+            questionTextEl.innerHTML = formattedSentence;
+
+            // Progress Bar Width
+            const progressPct = ((currentIndex + 1) / examQuestions.length) * 100;
+            topProgressBarEl.style.width = `${progressPct}%`;
+
+            // Flagged Status
+            if (flaggedQuestions.has(q.id)) {
+                flagTextEl.textContent = "Flagged";
+                flagTextEl.className = "text-xs font-bold text-gold-400";
+                flagIconEl.setAttribute('fill', 'currentColor');
+                flagIconEl.className = "w-4 h-4 text-gold-400";
+            } else {
+                flagTextEl.textContent = "Flag";
+                flagTextEl.className = "text-xs text-slate-400";
+                flagIconEl.setAttribute('fill', 'none');
+                flagIconEl.className = "w-4 h-4 text-slate-400";
+            }
+
+            // Options Rendering
+            optionsContainerEl.innerHTML = '';
+            const labels = ['A', 'B', 'C', 'D'];
+            const userAns = userAnswers[currentIndex];
+
+            q.options.forEach((opt, idx) => {
+                const isSelected = userAns === idx;
+                const isCorrect = idx === q.correct;
+                
+                let btnStyle = "bg-slate-900/80 border-slate-700/80 text-slate-200 hover:border-bank-500 hover:bg-slate-800";
+                let badgeStyle = "bg-slate-800 text-slate-400 border-slate-700";
+
+                if (userAns !== null) {
+                    if (practiceMode) {
+                        // Practice Mode Instant Feedback colors
+                        if (isCorrect) {
+                            btnStyle = "bg-emerald-950/70 border-emerald-500 text-emerald-200 font-semibold ring-1 ring-emerald-500/50";
+                            badgeStyle = "bg-emerald-500 text-white border-emerald-400";
+                        } else if (isSelected && !isCorrect) {
+                            btnStyle = "bg-rose-950/70 border-rose-500 text-rose-200 font-semibold";
+                            badgeStyle = "bg-rose-500 text-white border-rose-400";
+                        } else {
+                            btnStyle = "bg-slate-900/40 border-slate-800 text-slate-500 opacity-60";
+                        }
+                    } else {
+                        // Exam Mode selection colors (neutral)
+                        if (isSelected) {
+                            btnStyle = "bg-bank-950 border-bank-500 text-white font-semibold ring-1 ring-bank-500";
+                            badgeStyle = "bg-bank-500 text-white border-bank-400";
+                        }
+                    }
+                }
+
+                const btn = document.createElement('button');
+                btn.className = `w-full p-3.5 sm:p-4 rounded-xl border text-left flex items-start gap-3 transition-all duration-200 ${btnStyle}`;
+                btn.onclick = () => selectOption(idx);
+
+                btn.innerHTML = `
+                    <span class="w-6 h-6 rounded-lg border text-xs font-bold flex items-center justify-center flex-shrink-0 ${badgeStyle}">${labels[idx]}</span>
+                    <span class="text-xs sm:text-sm md:text-base leading-snug font-medium pt-0.5 flex-1">${opt}</span>
+                `;
+                optionsContainerEl.appendChild(btn);
+            });
+
+            // Explanation Display in Practice Mode
+            if (practiceMode && userAns !== null) {
+                explanationCardEl.classList.remove('hidden');
+                grammarRuleTagEl.textContent = q.rule;
+                
+                const isUserCorrect = userAns === q.correct;
+                if (isUserCorrect) {
+                    explanationCardEl.className = "rounded-xl p-4 sm:p-5 border bg-emerald-950/60 border-emerald-500/50 text-emerald-100 fade-slide-in";
+                    explanationTitleEl.textContent = "Transaction Approved! (Correct)";
+                    explanationTitleEl.className = "font-bold text-base text-emerald-400";
+                    explanationBadgeEl.className = "p-2 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex-shrink-0 mt-0.5";
+                    explanationBadgeEl.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>`;
+                } else {
+                    explanationCardEl.className = "rounded-xl p-4 sm:p-5 border bg-rose-950/60 border-rose-500/50 text-rose-100 fade-slide-in";
+                    explanationTitleEl.textContent = "Transaction Declined! (Incorrect)";
+                    explanationTitleEl.className = "font-bold text-base text-rose-400";
+                    explanationBadgeEl.className = "p-2 rounded-lg bg-rose-500/20 text-rose-400 border border-rose-500/30 flex-shrink-0 mt-0.5";
+                    explanationBadgeEl.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>`;
+                }
+
+                explanationCorrectWhyEl.textContent = q.whyRight;
+                explanationIncorrectWhyEl.textContent = `Why incorrect: ${q.whyWrong}`;
+            } else {
+                explanationCardEl.classList.add('hidden');
+            }
+
+            // Buttons state
+            prevBtn.disabled = currentIndex === 0;
+
+            if (currentIndex === examQuestions.length - 1) {
+                nextBtnText.textContent = "Submit Exam Statement";
+                nextBtn.className = "px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-bank-600 hover:from-emerald-500 hover:to-bank-500 text-white text-xs sm:text-sm font-bold transition shadow-lg flex items-center gap-1.5";
+            } else {
+                nextBtnText.textContent = "Next Question";
+                nextBtn.className = "px-5 py-2.5 rounded-xl bg-bank-600 hover:bg-bank-500 text-white text-xs sm:text-sm font-semibold transition shadow-md shadow-bank-900/50 flex items-center gap-1.5";
+            }
+
+            updateLiveScore();
+            renderGridModalButtons();
+        }
+
+        // Option Selection Handler
+        function selectOption(index) {
+            userAnswers[currentIndex] = index;
+            renderQuestion();
+        }
+
+        // Flag Current Question Toggle
+        function toggleFlagCurrentQuestion() {
+            const id = examQuestions[currentIndex].id;
+            if (flaggedQuestions.has(id)) {
+                flaggedQuestions.delete(id);
+            } else {
+                flaggedQuestions.add(id);
+            }
+            renderQuestion();
+        }
+
+        // Update Live Score Counter
+        function updateLiveScore() {
+            let correctCount = 0;
+            userAnswers.forEach((ans, idx) => {
+                if (ans === examQuestions[idx].correct) correctCount++;
+            });
+            const formattedMoney = (correctCount * 100).toLocaleString('en-US');
+            liveScoreEl.textContent = `$${formattedMoney} (${correctCount}/50)`;
+        }
+
+        // Next / Prev Question Actions
+        function nextQuestion() {
+            if (currentIndex < examQuestions.length - 1) {
+                currentIndex++;
+                renderQuestion();
+            } else {
+                finishExam();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                renderQuestion();
+            }
+        }
+
+        // Toggle Navigator Modal
+        function toggleGridModal() {
+            const modal = document.getElementById('grid-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        // Render 50 Navigation Buttons inside Grid
+        function renderGridModalButtons() {
+            const container = document.getElementById('grid-buttons-container');
+            container.innerHTML = '';
+
+            examQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                const isCurrent = idx === currentIndex;
+                const isFlagged = flaggedQuestions.has(q.id);
+
+                let bgClass = "bg-slate-700 text-slate-300 hover:bg-slate-600";
+
+                if (userAns !== null) {
+                    if (practiceMode) {
+                        if (userAns === q.correct) bgClass = "bg-emerald-600 text-white font-bold";
+                        else bgClass = "bg-rose-600 text-white font-bold";
+                    } else {
+                        bgClass = "bg-bank-600 text-white font-bold";
+                    }
+                }
+
+                if (isFlagged) {
+                    bgClass += " ring-2 ring-gold-400";
+                }
+
+                if (isCurrent) {
+                    bgClass += " border-2 border-white scale-105 z-10";
+                }
+
+                const btn = document.createElement('button');
+                btn.className = `h-9 rounded-lg text-xs font-mono transition flex items-center justify-center relative ${bgClass}`;
+                btn.textContent = idx + 1;
+                btn.onclick = () => {
+                    currentIndex = idx;
+                    renderQuestion();
+                    toggleGridModal();
+                };
+
+                container.appendChild(btn);
+            });
+        }
+
+        // Finish Exam & Display Statement
+        function finishExam() {
+            clearInterval(timerInterval);
+            
+            document.getElementById('question-view').classList.add('hidden');
+            document.getElementById('results-view').classList.remove('hidden');
+
+            let correctCount = 0;
+            userAnswers.forEach((ans, idx) => {
+                if (ans === examQuestions[idx].correct) correctCount++;
+            });
+
+            const percent = Math.round((correctCount / examQuestions.length) * 100);
+            
+            document.getElementById('summary-score-val').textContent = `${correctCount} / 50`;
+            document.getElementById('summary-percent-val').textContent = `${percent}%`;
+            
+            // Time Spent Display
+            const mins = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+            const secs = String(timerSeconds % 60).padStart(2, '0');
+            document.getElementById('summary-time-val').textContent = `${mins}:${secs}`;
+
+            // Rating
+            const ratingEl = document.getElementById('summary-rating-val');
+            if (percent >= 90) {
+                ratingEl.textContent = "Senior Financial Analyst (A+)";
+                ratingEl.className = "text-xs sm:text-sm font-bold text-emerald-400 mt-1";
+            } else if (percent >= 75) {
+                ratingEl.textContent = "Banking Specialist (B+)";
+                ratingEl.className = "text-xs sm:text-sm font-bold text-bank-400 mt-1";
+            } else if (percent >= 60) {
+                ratingEl.textContent = "Junior Associate (C)";
+                ratingEl.className = "text-xs sm:text-sm font-bold text-gold-400 mt-1";
+            } else {
+                ratingEl.textContent = "Compliance Review Required";
+                ratingEl.className = "text-xs sm:text-sm font-bold text-rose-400 mt-1";
+            }
+
+        }
+
+        // Restart Exam
+        function restartExam() {
+            currentIndex = 0;
+            userAnswers = new Array(examQuestions.length).fill(null);
+            flaggedQuestions.clear();
+            timerSeconds = 0;
+            
+            document.getElementById('results-view').classList.add('hidden');
+            document.getElementById('question-view').classList.remove('hidden');
+            
+            startTimer();
+            renderQuestion();
+        }
+
+        window.onload = function() {
+            startTimer();
+            renderQuestion();
+        };
+    </script>
+</body>
+</html>
